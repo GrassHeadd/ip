@@ -1,6 +1,6 @@
-public class Task {
+public abstract class Task {
     private boolean isDone = false;
-    private String taskDetails;
+    private final String taskDetails;
 
     public Task(String taskDetails) {
         this.taskDetails = taskDetails;
@@ -20,6 +20,8 @@ public class Task {
     public String getStatusIcon() {
         return (isDone ? "X" : " "); // mark done task with X
     }
+
+    public abstract String getTaskType();
 
     @Override
     public String toString() {
