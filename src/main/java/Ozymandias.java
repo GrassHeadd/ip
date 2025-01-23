@@ -7,17 +7,16 @@ public class Ozymandias {
 
     public static String greetHello() {
         return """
-                Behold! I am Ozymandias, King of Kings.
-                Look upon my works, ye mighty, and tell me—
-                What task shall I command into existence today??\s
-               """;
+            Behold! I am Ozymandias, King of Kings.
+            """;
     }
 
     public static String greetGoodbye() {
-        return "            Go now, traveler, and remember—\n" +
-                "           My kingdom awaits your return when the sands of time call again.\n" +
-                "           Farewell.\n";
+        return """
+           Go now, traveler
+           """;
     }
+
 
     public static void addTask(String input) {
         Task newTask = null;
@@ -59,6 +58,25 @@ public class Ozymandias {
         }
     }
 
+    public static void deleteTask(int id) {
+        if (taskList.containsKey(id)) {
+            Task removedTask = taskList.remove(id);
+            System.out.println("     Noted. I've removed this task:");
+            System.out.println("       " + removedTask.getTaskType() + "[" + removedTask.getStatusIcon() + "] " + removedTask);
+            System.out.println("     Now you have " + taskList.size() + " tasks in the list.");
+
+            // Reassign task IDs
+            LinkedHashMap<Integer, Task> updatedTaskList = new LinkedHashMap<>();
+            int newId = 1;
+            for (Task task : taskList.values()) {
+                updatedTaskList.put(newId++, task);
+            }
+            taskList = updatedTaskList;
+            idCounter = newId; // Update idCounter to avoid duplicates
+        } else {
+            System.out.println("Error: No task found with ID " + id);
+        }
+    }
 
     public static void printTasks() {
         System.out.println("     Here are the tasks in your list:");

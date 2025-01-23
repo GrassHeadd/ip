@@ -10,12 +10,12 @@ public class Events extends Task {
 
     @Override
     public String getTaskType() {
-        return "[T]";
+        return "[E]";
     }
 
     @Override
     public String toString() {
-        return super.toString() + " (from: "+ startDate + " (to: " + endDate + ")";
+        return super.toString() + " (from: "+ startDate + " to: " + endDate + ")";
     }
 
 }
