@@ -64,15 +64,15 @@ public class Ozymandias {
             System.out.println("     Noted. I've removed this task:");
             System.out.println("       " + removedTask.getTaskType() + "[" + removedTask.getStatusIcon() + "] " + removedTask);
             System.out.println("     Now you have " + taskList.size() + " tasks in the list.");
+            System.out.println();
 
-            // Reassign task IDs
             LinkedHashMap<Integer, Task> updatedTaskList = new LinkedHashMap<>();
             int newId = 1;
             for (Task task : taskList.values()) {
                 updatedTaskList.put(newId++, task);
             }
             taskList = updatedTaskList;
-            idCounter = newId; // Update idCounter to avoid duplicates
+            idCounter = newId;
         } else {
             System.out.println("Error: No task found with ID " + id);
         }
@@ -126,6 +126,15 @@ public class Ozymandias {
                     System.out.println("Error: Task ID must be a valid integer.");
                 } catch (Exception e) {
                     System.out.println("An unexpected error occurred while marking/unmarking: " + e.getMessage());
+                }
+
+            // CASE OF DELETING A TASK
+            } else if (input.startsWith("delete")) {
+                try {
+                    int taskId = Integer.parseInt(input.replace("delete ", "").trim());
+                    deleteTask(taskId);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: Task ID must be a valid integer.");
                 }
 
             //CASE OF ADDING INPUT

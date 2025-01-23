@@ -17,13 +17,13 @@ Behold! I am Ozymandias, King of Kings.
      2.[D][ ] return book (by: Sunday)
      3.[E][ ] project meeting (from: Monday 2pm to: 4pm)
 
-    Nice! I've marked this task as done:
-      [X] read book
+     Noted. I've removed this task:
+       [D][ ] return book (by: Sunday)
+     Now you have 2 tasks in the list.
 
      Here are the tasks in your list:
-     1.[T][X] read book
-     2.[D][ ] return book (by: Sunday)
-     3.[E][ ] project meeting (from: Monday 2pm to: 4pm)
+     1.[T][ ] read book
+     2.[E][ ] project meeting (from: Monday 2pm to: 4pm)
 
 Go now, traveler
 
