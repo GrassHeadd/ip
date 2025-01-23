@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class Ozymandias {
-    private static LinkedHashMap<Integer, String> tasks = new LinkedHashMap<>();
+    private static LinkedHashMap<Integer, Task> taskList = new LinkedHashMap<>();
     private static int idCounter = 1;
 
     public static String greetHello() {
@@ -17,18 +17,18 @@ public class Ozymandias {
         return "    Bye. Hope to see you again soon!\n";
     }
 
-    public static void addText(String text) {
-        tasks.put(idCounter++, text);
+    public static void addTask(String text) {
+        taskList.put(idCounter++, new Task(text));
         System.out.println("    added: " + text+ "\n");
     }
 
-    public static LinkedHashMap<Integer, String> getTasks() {
-        return new LinkedHashMap<>(tasks); // Return a copy to prevent modification
+    public static LinkedHashMap<Integer, Task> getTasks() {
+        return new LinkedHashMap<>(taskList); // Return a copy to prevent modification
     }
 
     public static void printTasks() {
-        for (Integer id : tasks.keySet()) {
-            System.out.println("    " + id + ". " + tasks.get(id));
+        for (Integer id : taskList.keySet()) {
+            System.out.println("    " + id + ". " + "[" + taskList.get(id).getStatusIcon() + "] " + taskList.get(id));
         }
         System.out.println();
     }
@@ -43,8 +43,22 @@ public class Ozymandias {
                 return;
             } else if (input.equalsIgnoreCase("list")) {
                 printTasks();
+            } else if (input.startsWith("mark") || input.startsWith("unmark")) {
+                int taskId = 0;
+                if (input.startsWith("mark")) {
+                    taskId = Integer.parseInt(input.replace("mark ", "").trim());
+                } else if (input.startsWith("unmark")) {
+                    taskId = Integer.parseInt(input.replace("unmark ", "").trim());
+                }
+
+                if (taskList.containsKey(taskId)) {
+                    taskList.get(taskId).toggleIsDone();
+                } else {
+                    System.out.println("No task found with id " + taskId);
+                }
+                System.out.println();
             } else {
-                addText(input);
+                addTask(input);
             }
         }
     }
