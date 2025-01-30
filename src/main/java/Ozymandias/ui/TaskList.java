@@ -1,3 +1,5 @@
+package Ozymandias.ui;
+
 import java.util.LinkedHashMap;
 
 public class TaskList {
@@ -25,7 +27,7 @@ public class TaskList {
         Task.reduceNextId();
         return removedTask;
     }
-    
+
     public Task getTask(int id) {
         return tasks.get(id);
     }

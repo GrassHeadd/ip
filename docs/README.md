@@ -1,4 +1,4 @@
-# Ozymandias User Guide
+# Ozymandias.ui.Ozymandias User Guide
 
 // Update the title above to match the actual product name
 

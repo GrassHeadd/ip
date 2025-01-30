@@ -1,3 +1,5 @@
+package Ozymandias.ui;
+
 public abstract class Task {
     private static int nextId = 1;          // Auto-increment ID if you want unique IDs
     private int id;

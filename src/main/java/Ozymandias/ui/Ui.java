@@ -1,3 +1,5 @@
+package Ozymandias.ui;
+
 public class Ui {
 
     public void greetHello() {

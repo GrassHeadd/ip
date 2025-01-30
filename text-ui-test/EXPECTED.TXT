@@ -1,4 +1,4 @@
-Behold! I am Ozymandias, King of Kings.
+Behold! I am Ozymandias.ui.Ozymandias, King of Kings.
 
      Got it. I've added this task:
        [T][ ] read book
