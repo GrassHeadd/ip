@@ -1,8 +1,12 @@
+import java.sql.SQLOutput;
+import java.time.format.DateTimeParseException;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.LinkedHashMap;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 
 
 public class Ozymandias {
@@ -30,32 +34,54 @@ public class Ozymandias {
         if (input.startsWith("todo")) {
             String description = input.substring(5).trim();
             if (description.isEmpty()) {
-                throw new IllegalArgumentException("Task description for 'todo' cannot be empty.");
+                System.out.println("Task description for 'todo' cannot be empty.");
             }
             newTask = new ToDos(description);
 
         //type deadline
         } else if (input.startsWith("deadline")) {
             String[] parts = input.substring(9).split("/by");
+            //System.out.println("parts: " + Arrays.toString(parts));
             String description = parts[0].trim();
             if (description.isEmpty()) {
                 System.out.println("Task description for 'deadline' cannot be empty.");
-                return null;
             }
-            String dueDate = parts.length > 1 ? parts[1].trim() : "unspecified";
-            newTask = new Deadlines(description, dueDate);
+
+            if (parts.length < 2) {System.out.println("Please provide a valid date in yyyy-MM-dd.");}
+            String dueDate = parts[1].trim();
+
+            try {
+                newTask = new Deadlines(description, dueDate);
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format for deadline you peasant!");
+            }
 
         //type event
         } else if (input.startsWith("event")) {
             String[] parts = input.substring(6).split("/from|/to");
+            //System.out.println("parts: " + Arrays.toString(parts));
+
+            if (parts.length < 3) {
+                System.out.println("You fool! Provide an actual valid date in yyyy-MM-dd, e.g.:");
+                System.out.println("event project presentation /from 2025-03-10 /to 2025-03-11");
+                System.out.println();
+            }
+
             String description = parts[0].trim();
             if (description.isEmpty()) {
                 System.out.println("Task description for 'event' cannot be empty.");
+                System.out.println();
+            }
+
+            String startDate = parts[1].trim();
+            String endDate = parts[2].trim();
+
+            try {
+                newTask = new Events(description, startDate, endDate);
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format for event you peasant!");
                 return null;
             }
-            String startDate = parts.length > 1 ? parts[1].trim() : "unspecified";
-            String endDate = parts.length > 2 ? parts[2].trim() : "unspecified";
-            newTask = new Events(description, startDate, endDate);
         }
 
         return (T) newTask;
