@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.LinkedHashMap;
+import java.io.File;
+
 
 public class Ozymandias {
     private static LinkedHashMap<Integer, Task> taskList = new LinkedHashMap<>();
@@ -18,15 +20,18 @@ public class Ozymandias {
     }
 
 
-    public static void addTask(String input) {
+    public static <T extends Task> T createDifferentTask(String input) {
         Task newTask = null;
 
+        //type: todo
         if (input.startsWith("todo")) {
             String description = input.substring(5).trim();
             if (description.isEmpty()) {
                 throw new IllegalArgumentException("Task description for 'todo' cannot be empty.");
             }
             newTask = new ToDos(description);
+
+        //type deadline
         } else if (input.startsWith("deadline")) {
             String[] parts = input.substring(9).split("/by");
             String description = parts[0].trim();
@@ -35,6 +40,8 @@ public class Ozymandias {
             }
             String dueDate = parts.length > 1 ? parts[1].trim() : "unspecified";
             newTask = new Deadlines(description, dueDate);
+
+        //type event
         } else if (input.startsWith("event")) {
             String[] parts = input.substring(6).split("/from|/to");
             String description = parts[0].trim();
@@ -46,11 +53,24 @@ public class Ozymandias {
             newTask = new Events(description, startDate, endDate);
         }
 
+        return (T) newTask;
+    }
+
+    public static void addTask(String input) {
+        Task newTask = null;
+        newTask = createDifferentTask(input);
+
         try {
+                if (newTask == null) {
+                    System.out.println("    You fool! Task shall have a type!");
+                    return;
+                }
+
                 taskList.put(idCounter++, newTask);
                 System.out.println("     Got it. I've added this task:\n" + "       " + newTask.getTaskType() + "[" + newTask.getStatusIcon() + "] " + newTask);
                 System.out.println("     Now you have " + taskList.size() + " tasks in the list.");
                 System.out.println();
+                
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid task type");
         } catch (NullPointerException e) {
