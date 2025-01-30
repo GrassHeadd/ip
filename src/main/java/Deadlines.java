@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 public class Deadlines extends Task {
     private final LocalDate dueDate;
 
-    private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter INPUT_FORMAT  = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy");
 
     public Deadlines(String taskDetails, String dueDateString) {
@@ -20,7 +20,7 @@ public class Deadlines extends Task {
 
     @Override
     public String toString() {
-        // Print it in your desired output format, e.g., "Oct 15 2019"
+        // Example: "do homework (by: Oct 15 2025)"
         return super.toString() + " (by: " + dueDate.format(OUTPUT_FORMAT) + ")";
     }
 }
