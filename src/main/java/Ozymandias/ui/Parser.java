@@ -9,6 +9,21 @@ public class Parser {
             System.out.println("    You didn't put anything you baffoon!!!\n");
         }
 
+        if (input.startsWith("find")) {
+            try {
+                String[] parts = input.split("find ", 2); // Split only once
+                if (parts.length < 2 || parts[1].trim().isEmpty()) {
+                    System.out.println("    Please enter a keyword to search for!\n");
+                } else {
+                    String result = oz.findTask(parts[1].trim());
+                    System.out.println(result);
+                }
+            } catch (Exception e) {
+                System.out.println("    Error finding task: " + e.getMessage() + "\n");
+            }
+            return;
+        }
+
         if (input.equalsIgnoreCase("bye")) {
             oz.getUi().greetGoodbye();
             oz.setExit(true);

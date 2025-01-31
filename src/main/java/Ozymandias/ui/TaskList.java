@@ -12,35 +12,36 @@ public class TaskList {
     }
 
     public void addTask(Task t) {
-        tasks.put(currentId++, t);
+        tasks.put(currentId, t);
+        t.setId(currentId);
+        currentId++;
     }
 
     public Task removeTask(int id) {
+        if (!tasks.containsKey(id)) {return null;}
         Task removedTask = tasks.remove(id);
-        if (removedTask == null) {return null;}
-        for (int i = id + 1; i < Task.getNextId(); i++) {
-            Task t = tasks.remove(i);
-            if (t != null) {
-                tasks.put(i - 1, t);
-            }
-        }
-        Task.reduceNextId();
+        reassignTaskIds();
         return removedTask;
     }
 
-    public Task getTask(int id) {
-        return tasks.get(id);
+    private void reassignTaskIds() {
+        LinkedHashMap<Integer, Task> newTasks = new LinkedHashMap<>();
+        int newId = 1;
+
+        for (Task task : tasks.values()) {
+            task.setId(newId);
+            newTasks.put(newId, task);
+            newId++;
+        }
+        tasks = newTasks;
+        currentId = newId;
     }
 
-    public boolean hasTask(int id) {
-        return tasks.containsKey(id);
-    }
+    public boolean hasTask(int id) {return tasks.containsKey(id);}
 
-    public LinkedHashMap<Integer, Task> getAllTasks() {
-        return tasks;
-    }
+    public Task getTask(int id) {return tasks.get(id);}
 
-    public int size() {
-        return tasks.size();
-    }
+    public int size() {return tasks.size();}
+
+    public LinkedHashMap<Integer, Task> getAllTasks() {return tasks;}
 }
