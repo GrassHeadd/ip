@@ -3,6 +3,10 @@ package Ozymandias.ui;
 import java.util.Scanner;
 import java.util.Map;
 
+/**
+ * The main class for the Ozymandias task manager.
+ * It handles user interactions, command processing, and task storage.
+ */
 public class Ozymandias {
     private final Ui ui;
     private final Storage storage;
@@ -15,6 +19,10 @@ public class Ozymandias {
         this.tasks = storage.load();  // load any existing tasks from file
     }
 
+    /**
+     * Runs the Ozymandias application, continuously accept user input
+     * til user exits the program.
+     */
     public void run() {
         ui.greetHello();
         Scanner scanner = new Scanner(System.in);
@@ -38,6 +46,11 @@ public class Ozymandias {
         return tasks;
     }
 
+    /**
+     * Adds a task to the task list
+     *
+     * @param t Task to be added
+     */
     public void addTask(Task t) {
         tasks.addTask(t);
         System.out.println("     Got it. I've added this task:\n"
@@ -45,6 +58,11 @@ public class Ozymandias {
         System.out.println("     Now you have " + tasks.size() + " tasks in the list.\n");
     }
 
+    /**
+     * Remove a task to the task list
+     *
+     * @param id task id to be removed
+     */
     public void deleteTask(int id) {
         if (tasks.hasTask(id)) {
             Task removedTask = tasks.removeTask(id);
@@ -57,6 +75,12 @@ public class Ozymandias {
         }
     }
 
+    /**
+     * Marks or unmark a task in the tasklist
+     *
+     * @param id Id of task to be marked
+     * @param isMark Whether task is marked currently
+     */
     public void markTask(int id, boolean isMark) {
         Task t = tasks.getTask(id);
         if (t == null) {
@@ -72,6 +96,9 @@ public class Ozymandias {
         }
     }
 
+    /**
+     * Prints out the tasks in the tasklist
+     */
     public void printTasks() {
         if (tasks.size() == 0) {
             System.out.println("    Your task list is empty.");

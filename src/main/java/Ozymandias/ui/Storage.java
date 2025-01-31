@@ -15,6 +15,11 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    /**
+     * prints out the task details in the txt file
+     *
+     * @return The tasks in the txt file
+     */
     public TaskList load() {
         try {
             File f = new File(filePath);
@@ -28,6 +33,12 @@ public class Storage {
         return new TaskList();
     }
 
+
+    /**
+     * Saves the tasklist into a txt file
+     *
+     * @param taskList Tasklist to be saved
+     */
     public void save(TaskList taskList) {
         try {
             File f = new File(filePath);
