@@ -31,15 +31,16 @@ test {
     }
 }
 
-
+mainClassName = 'Ozymandias.ui.Ozymandias'
 
 application {
-    mainClass.set("ui.Ozymandias")
+    mainClass.set("Ozymandias.ui.Ozymandias")
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "Ozymandias"
     archiveClassifier = null
+    archiveFileName = "Ozymandias.jar"
 }
 
 run{
