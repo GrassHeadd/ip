@@ -87,6 +87,28 @@ public class Ozymandias {
         System.out.println();
     }
 
+    public String findTask(String input) {
+        input = input.toLowerCase().trim();
+        int count = 0;
+        String output = "    Here are the matching tasks in your list:\n";
+
+        for (Map.Entry<Integer, Task> entry : tasks.getAllTasks().entrySet()) {
+            Task tk = entry.getValue();
+            String tkString = tk.toString().toLowerCase().trim();
+
+            if (tkString.contains(input)) {
+                count++;
+                output += "     " + count + "." + tk.getTaskType()
+                        + "[" + tk.getStatusIcon() + "] " + tk + "\n";
+            }
+        }
+
+        if (count == 0) {
+            return "       There is no matching task!\n";
+        }
+        return output;
+    }
+
     public static void main(String[] args) {
         Ozymandias oz = new Ozymandias("./data/Ozymandias.txt");
         oz.run();
