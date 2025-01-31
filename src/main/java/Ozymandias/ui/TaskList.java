@@ -11,9 +11,7 @@ public class TaskList {
         currentId = 1;
     }
 
-    public void addTask(Task t) {
-        tasks.put(currentId++, t);
-    }
+    public void addTask(Task t) {tasks.put(currentId++, t);}
 
     public Task removeTask(int id) {
         Task removedTask = tasks.remove(id);
@@ -28,19 +26,11 @@ public class TaskList {
         return removedTask;
     }
 
-    public Task getTask(int id) {
-        return tasks.get(id);
-    }
+    public Task getTask(int id) {return tasks.get(id);}
 
-    public boolean hasTask(int id) {
-        return tasks.containsKey(id);
-    }
+    public boolean hasTask(int id) {return tasks.containsKey(id);}
 
-    public LinkedHashMap<Integer, Task> getAllTasks() {
-        return tasks;
-    }
+    public LinkedHashMap<Integer, Task> getAllTasks() {return tasks;}
 
-    public int size() {
-        return tasks.size();
-    }
+    public int size() {return tasks.size();}
 }

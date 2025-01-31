@@ -11,14 +11,11 @@ public class Deadlines extends Task {
 
     public Deadlines(String taskDetails, String dueDateString) {
         super(taskDetails);
-
         this.dueDate = LocalDate.parse(dueDateString, INPUT_FORMAT);
     }
 
     @Override
-    public String getTaskType() {
-        return "[D]";
-    }
+    public String getTaskType() {return "[D]";}
 
     @Override
     public String toString() {
