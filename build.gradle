@@ -4,14 +4,18 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
+
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
+
 
 dependencies {
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
 }
+
 
 test {
     useJUnitPlatform()
@@ -27,8 +31,10 @@ test {
     }
 }
 
+
+
 application {
-    mainClass.set("seedu.duke.Duke")
+    mainClass.set("ui.Ozymandias")
 }
 
 shadowJar {
