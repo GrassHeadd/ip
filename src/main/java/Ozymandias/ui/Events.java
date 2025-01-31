@@ -17,9 +17,7 @@ public class Events extends Task {
     }
 
     @Override
-    public String getTaskType() {
-        return "[E]";
-    }
+    public String getTaskType() {return "[E]";}
 
     @Override
     public String toString() {

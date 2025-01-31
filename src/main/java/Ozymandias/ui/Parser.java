@@ -11,9 +11,7 @@ public class Parser {
      * @param oz The main chatbot object
      */
     public static void handleCommand(String input, Ozymandias oz) {
-        if (input.isBlank()) {
-            System.out.println("    You didn't put anything you baffoon!!!\n");
-        }
+        if (input.isBlank()) {System.out.println("    You didn't put anything you baffoon!!!\n");}
 
         if (input.startsWith("find")) {
             try {
@@ -33,10 +31,8 @@ public class Parser {
         if (input.equalsIgnoreCase("bye")) {
             oz.getUi().greetGoodbye();
             oz.setExit(true);
-
         } else if (input.equalsIgnoreCase("list")) {
             oz.printTasks();
-
         } else if (input.startsWith("mark") || input.startsWith("unmark")) {
             try {
                 String[] tokens = input.split(" ");
@@ -49,7 +45,6 @@ public class Parser {
             } catch (NumberFormatException e) {
                 System.out.println("    TASK ID SHOULD BE AN INTEGER YOU MORON\n.");
             }
-
         } else if (input.startsWith("delete")) {
             try {
                 String[] tokens = input.split(" ");
@@ -58,7 +53,6 @@ public class Parser {
             } catch (NumberFormatException e) {
                 System.out.println("    TASK ID SHOULD BE AN INTEGER YOU MORON\n");
             }
-
         } else {
             try {
                 Task newTask = createDifferentTask(input);
@@ -91,7 +85,6 @@ public class Parser {
                 return null;
             }
             newTask = new ToDos(description);
-
         } else if (input.startsWith("deadline")) {
             //"deadline return book /by 2025-01-28"
             String[] parts = input.substring(8).split("/by");
@@ -134,7 +127,6 @@ public class Parser {
                 return null;
             }
         }
-
         return newTask;
     }
 }

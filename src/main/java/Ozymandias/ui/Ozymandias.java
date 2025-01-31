@@ -34,17 +34,11 @@ public class Ozymandias {
         }
     }
 
-    public void setExit(boolean exit) {
-        this.isExit = exit;
-    }
+    public void setExit(boolean exit) {this.isExit = exit;}
 
-    public Ui getUi() {
-        return ui;
-    }
+    public Ui getUi() {return ui;}
 
-    public TaskList getTasks() {
-        return tasks;
-    }
+    public TaskList getTasks() {return tasks;}
 
     /**
      * Adds a task to the task list
@@ -108,7 +102,7 @@ public class Ozymandias {
                 int id = entry.getKey();
                 Task tk = entry.getValue();
                 System.out.println("     " + id + "." + tk.getTaskType()
-                        + "[" + tk.getStatusIcon() + "] " + tk);
+                                    + "[" + tk.getStatusIcon() + "] " + tk);
             }
         }
         System.out.println();
