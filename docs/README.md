@@ -1,30 +1,32 @@
 # Ozymandias User Guide
+>My name is Ozymandias, King of Kings;  
+>Look on my Works, ye Mighty, and despair!  
+>Nothing beside remains. Round the decay   
+>
+> by [Percy Bysshe Shelley](https://www.poetryfoundation.org/poems/46565/ozymandias) 
 
-// Update the title above to match the actual product name
 
-// Product screenshot goes here
+All you gotta do is just, ~meet me at the~
 
-// Product intro goes here
+1. download it from [here](https://github.com/GrassHeadd/ip).
+2. double-click it.
+3. add your tasks.
+4. let it manage your tasks for you 😉
 
-## Adding deadlines
+And it is **FREE**!
 
-// Describe the action and its outcome.
+Features:
 
-// Give examples of usage
+- [x] Managing tasks
+- [ ] Managing deadlines (coming soon)
+- [ ] Reminders (coming soon)
+- 
+If you are a Java programmer, you can use it to practice Java too. Here's the ```main``` method:
 
-Example: `keyword (optional arguments)`
-
-// A description of the expected outcome goes here
-
+```Java
+public class Main {
+    public static void main(String[] args) {
+        Application.launch(MainApp.class, args);
+    }
+}
 ```
-expected output
-```
-
-## Feature ABC
-
-// Feature details
-
-
-## Feature XYZ
-
-// Feature details
