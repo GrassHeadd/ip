@@ -1,4 +1,4 @@
-package Ozymandias.ui;
+package Ozymandias.Task;
 
 public class ToDos extends Task {
     public ToDos(String taskDetails) {
