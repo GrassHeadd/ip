@@ -2,6 +2,8 @@ package Ozymandias.ui;
 
 import java.util.LinkedHashMap;
 
+import Ozymandias.Task.Task;
+
 public class TaskList {
     private LinkedHashMap<Integer, Task> tasks;
     private int currentId;

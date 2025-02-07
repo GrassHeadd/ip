@@ -1,6 +1,10 @@
 package Ozymandias.ui;
 
 import java.util.Scanner;
+
+import Ozymandias.Storage.Storage;
+import Ozymandias.Task.Task;
+
 import java.util.Map;
 
 /**
@@ -82,9 +86,9 @@ public class Ozymandias {
             return;
         }
         if (t.getStatusIcon().equals("X") && isMark) {
-            System.out.println("    Ozymandias.ui.Task is already marked done!\n");
+            System.out.println("    Task.Task is already marked done!\n");
         } else if (t.getStatusIcon().equals(" ") && !isMark) {
-            System.out.println("    Ozymandias.ui.Task is already not done!\n");
+            System.out.println("    Task.Task is already not done!\n");
         } else {
             t.toggleIsDone();
         }

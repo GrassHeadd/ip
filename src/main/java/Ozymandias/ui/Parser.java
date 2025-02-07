@@ -2,6 +2,11 @@ package Ozymandias.ui;
 
 import java.time.format.DateTimeParseException;
 
+import Ozymandias.Task.Deadlines;
+import Ozymandias.Task.Events;
+import Ozymandias.Task.Task;
+import Ozymandias.Task.ToDos;
+
 public class Parser {
 
     /**
@@ -16,7 +21,7 @@ public class Parser {
                 try {
                     String[] parts = input.split("find ", 2); // Split only once
                     if (parts.length < 2 || parts[1].trim().isEmpty()) {
-                        System.out.println("    Please enter a keyword to search for!\n");
+                        System.out.println("    Enter a keyword to search for!\n");
                     } else {
                         String result = oz.findTask(parts[1].trim());
                         System.out.println(result);
@@ -28,7 +33,7 @@ public class Parser {
             } else if (input.equalsIgnoreCase("bye")) {
                 oz.getUi().greetGoodbye();
                 oz.setExit(true);
-            } else if (input.equalsIgnoreCase("list")) {
+            } else if (input.trim().equalsIgnoreCase("list")) {
                 oz.printTasks();
             } else if (input.startsWith("mark") || input.startsWith("unmark")) {
                     String[] tokens = input.split(" ");
