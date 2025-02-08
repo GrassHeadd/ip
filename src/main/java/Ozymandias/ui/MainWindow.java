@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Controller for the main GUI.
  */
@@ -28,6 +30,10 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        // Show greeting message when window opens
+        dialogContainer.getChildren().add(
+            DialogBox.getOzymandiasDialog(Ui.greetHello(), ozymandiasImage)
+        );
     }
 
     /** Injects the Ozymandias instance */
@@ -37,10 +43,10 @@ public class MainWindow extends AnchorPane {
 
     /**
      * Creates two dialog boxes, one echoing user input and the other containing Ozymandias's reply and then appends them to
-     * the dialog container. Clears the user input after processing.
+     * the dialog container. Clears the user input after processing. Exit after calling bye
      */
     @FXML
-    private void handleUserInput() {
+    private void handleUserInput() throws InterruptedException {
         String input = userInput.getText();
         String response = ozymandias.getResponse(input);
         dialogContainer.getChildren().addAll(
@@ -48,5 +54,17 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getOzymandiasDialog(response, ozymandiasImage)
         );
         userInput.clear();
+
+        if (input.trim().equalsIgnoreCase("bye")) {
+            new Thread(() -> {
+                try {
+                    TimeUnit.SECONDS.sleep(5); // Wait for 5 seconds
+                    javafx.application.Platform.runLater(() -> javafx.application.Platform.exit());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+
     }
 }

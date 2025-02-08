@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    private Ozymandias ozymandias = new Ozymandias("./data/Ozymandias.txt");
+    private final Ozymandias ozymandias = new Ozymandias("./data/Ozymandias.txt");
 
     @Override
     public void start(Stage stage) {
