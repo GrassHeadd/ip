@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    private Ozymandias ozymandias = new Ozymandias("./data/Ozymandias.txt");
+    private final Ozymandias ozymandias = new Ozymandias("./data/Ozymandias.txt");
 
     @Override
     public void start(Stage stage) {
@@ -22,7 +22,7 @@ public class Main extends Application {
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
-            fxmlLoader.<MainWindow>getController().setDuke(ozymandias);  // inject the Duke instance
+            fxmlLoader.<MainWindow>getController().setOzymandias(ozymandias);  // inject the Duke instance
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

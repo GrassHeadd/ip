@@ -49,11 +49,11 @@ public class Ozymandias {
      *
      * @param t Task to be added
      */
-    public void addTask(Task t) {
+    public String addTask(Task t) {
         tasks.addTask(t);
-        System.out.println("     Got it. I've added this task:\n"
-                + "       " + t.getTaskType() + "[" + t.getStatusIcon() + "] " + t);
-        System.out.println("     Now you have " + tasks.size() + " tasks in the list.\n");
+        return ("     Fine, I'll add this task:\n"
+                + "       " + t.getTaskType() + "[" + t.getStatusIcon() + "] " + t + "\n")
+                + ("     Now you have " + tasks.size() + " tasks in the list.\n");
     }
 
     /**
@@ -61,15 +61,15 @@ public class Ozymandias {
      *
      * @param id task id to be removed
      */
-    public void deleteTask(int id) {
+    public String deleteTask(int id) {
         if (tasks.hasTask(id)) {
             Task removedTask = tasks.removeTask(id);
-            System.out.println("     Noted. I've removed this task:");
-            System.out.println("       " + removedTask.getTaskType()
-                    + "[" + removedTask.getStatusIcon() + "] " + removedTask);
-            System.out.println("     Now you have " + tasks.size() + " tasks in the list.\n");
+            return "     Noted. I've removed this task:\n"
+                    + "       " + removedTask.getTaskType()
+                    + "[" + removedTask.getStatusIcon() + "] " + removedTask + "\n"
+                    + "     Now you have " + tasks.size() + " tasks in the list.\n";
         } else {
-            System.out.println("     Error: No task found with ID " + id);
+           return ("     Error: No task found with ID " + id);
         }
     }
 
@@ -79,43 +79,46 @@ public class Ozymandias {
      * @param id Id of task to be marked
      * @param isMark Whether task is marked currently
      */
-    public void markTask(int id, boolean isMark) {
+    public String markTask(int id, boolean isMark) {
         Task t = tasks.getTask(id);
         if (t == null) {
-            System.out.println("    No task with ID " + id + " found!");
-            return;
+            return ("    No task with ID " + id + " found!");
         }
         if (t.getStatusIcon().equals("X") && isMark) {
-            System.out.println("    Task.Task is already marked done!\n");
+            return ("    Task is already marked done!\n");
         } else if (t.getStatusIcon().equals(" ") && !isMark) {
-            System.out.println("    Task.Task is already not done!\n");
+            return ("    Task is already not done!\n");
         } else {
             t.toggleIsDone();
+            return ("    Task toggled!\n");
         }
     }
 
     /**
      * Prints out the tasks in the tasklist
      */
-    public void printTasks() {
+    public String printTasks() {
         if (tasks.size() == 0) {
-            System.out.println("    Your task list is empty.");
+            return ("    Your task list is empty.");
         } else {
-            System.out.println("     Here are the tasks in your list:");
+            StringBuilder output = new StringBuilder(("     Here are the tasks in your list: \n"));
             for (Map.Entry<Integer, Task> entry : tasks.getAllTasks().entrySet()) {
                 int id = entry.getKey();
                 Task tk = entry.getValue();
-                System.out.println("     " + id + "." + tk.getTaskType()
-                                    + "[" + tk.getStatusIcon() + "] " + tk);
+                output.append("     ").append(id)
+                        .append(".").append(tk.getTaskType())
+                        .append("[").append(tk.getStatusIcon())
+                        .append("] ").append(tk).append("\n");
             }
+            return output.toString();
         }
-        System.out.println();
+
     }
 
     public String findTask(String input) {
         input = input.toLowerCase().trim();
         int count = 0;
-        String output = "    Here are the matching tasks in your list:\n";
+        StringBuilder output = new StringBuilder("    Here are the matching tasks in your list:\n");
 
         for (Map.Entry<Integer, Task> entry : tasks.getAllTasks().entrySet()) {
             Task tk = entry.getValue();
@@ -123,22 +126,24 @@ public class Ozymandias {
 
             if (tkString.contains(input)) {
                 count++;
-                output += "     " + count + "." + tk.getTaskType()
-                        + "[" + tk.getStatusIcon() + "] " + tk + "\n";
+                output.append("     ").append(count)
+                        .append(".").append(tk.getTaskType())
+                        .append("[").append(tk.getStatusIcon())
+                        .append("] ").append(tk).append("\n");
             }
         }
 
         if (count == 0) {
             return "       There is no matching task!\n";
         }
-        return output;
+        return output.toString();
     }
 
     /**
      * Generates a response for the user's chat message.
      */
     public String getResponse(String input) {
-        return "Duke heard: " + input;
+        return Parser.handleCommand(input, this);
     }
 
     public static void main(String[] args) {

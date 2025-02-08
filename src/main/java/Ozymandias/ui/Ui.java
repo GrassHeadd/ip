@@ -5,8 +5,8 @@ public class Ui {
     /**
      *  Method to greet the user when initalised
      */
-    public void greetHello() {
-        System.out.println("""
+    public static String greetHello() {
+        return ("""
             Behold! I am Ozymandias, King of Kings.
             """);
     }
@@ -14,8 +14,8 @@ public class Ui {
     /**
      * Method to greet the user goodbye when exit
      */
-    public void greetGoodbye() {
-        System.out.println("""
+    public static String greetGoodbye() {
+        return ("""
             Go now, traveler
             """);
     }
