@@ -30,13 +30,13 @@ public class MainWindow extends AnchorPane {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
     }
 
-    /** Injects the Duke instance */
-    public void setDuke(Ozymandias d) {
+    /** Injects the Ozymandias instance */
+    public void setOzymandias(Ozymandias d) {
         ozymandias = d;
     }
 
     /**
-     * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
+     * Creates two dialog boxes, one echoing user input and the other containing Ozymandias's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
     @FXML
@@ -45,7 +45,7 @@ public class MainWindow extends AnchorPane {
         String response = ozymandias.getResponse(input);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getDukeDialog(response, ozymandiasImage)
+                DialogBox.getOzymandiasDialog(response, ozymandiasImage)
         );
         userInput.clear();
     }
