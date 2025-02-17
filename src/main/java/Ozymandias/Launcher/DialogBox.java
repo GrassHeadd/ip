@@ -1,4 +1,4 @@
-package Ozymandias.ui;
+package Ozymandias.Launcher;
 
 import java.io.IOException;
 import java.util.Collections;

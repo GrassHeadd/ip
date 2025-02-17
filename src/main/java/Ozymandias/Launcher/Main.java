@@ -1,7 +1,8 @@
-package Ozymandias.ui;
+package Ozymandias.Launcher;
 
 import java.io.IOException;
 
+import Ozymandias.ui.Ozymandias;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

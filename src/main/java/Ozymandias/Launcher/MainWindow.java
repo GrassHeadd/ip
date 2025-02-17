@@ -1,5 +1,7 @@
-package Ozymandias.ui;
+package Ozymandias.Launcher;
 
+import Ozymandias.ui.Ozymandias;
+import Ozymandias.ui.Ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;

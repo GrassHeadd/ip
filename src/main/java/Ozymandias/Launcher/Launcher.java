@@ -1,4 +1,4 @@
-package Ozymandias.ui;
+package Ozymandias.Launcher;
 
 import javafx.application.Application;
 
