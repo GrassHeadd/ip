@@ -1,4 +1,4 @@
-package Ozymandias.Task;
+package Ozymandias.Tasks;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

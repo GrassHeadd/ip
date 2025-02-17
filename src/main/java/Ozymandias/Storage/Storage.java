@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
-import Ozymandias.Task.Task;
+import Ozymandias.Tasks.Task;
 import Ozymandias.ui.TaskList;
 
 public class Storage {

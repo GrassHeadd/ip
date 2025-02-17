@@ -3,7 +3,7 @@ package Ozymandias.ui;
 import java.util.Scanner;
 
 import Ozymandias.Storage.Storage;
-import Ozymandias.Task.Task;
+import Ozymandias.Tasks.Task;
 
 import java.util.Map;
 

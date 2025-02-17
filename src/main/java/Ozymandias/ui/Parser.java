@@ -2,10 +2,10 @@ package Ozymandias.ui;
 
 import java.time.format.DateTimeParseException;
 
-import Ozymandias.Task.Deadlines;
-import Ozymandias.Task.Events;
-import Ozymandias.Task.Task;
-import Ozymandias.Task.ToDos;
+import Ozymandias.Tasks.Deadlines;
+import Ozymandias.Tasks.Events;
+import Ozymandias.Tasks.Task;
+import Ozymandias.Tasks.ToDos;
 
 /**
  * A parser that interprets user commands and delegates tasks

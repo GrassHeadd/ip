@@ -1,8 +1,6 @@
-package Ozymandias.Task;
+package Ozymandias.Tasks;
 
 import org.junit.jupiter.api.Test;
-
-import Ozymandias.Task.Deadlines;
 
 public class DeadlinesTest {
 
