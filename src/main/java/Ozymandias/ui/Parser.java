@@ -25,15 +25,7 @@ public class Parser {
             } else if (HandleInput.isByeCommand(trimmedInput)) {
                 oz.setExit(true);
                 return Ui.greetGoodbye();
-<<<<<<< HEAD
-<<<<<<< HEAD
             } else if (HandleInput.isListCommand(trimmedInput)) {
-=======
-            } else if (isListCommand(trimmedInput)) {
->>>>>>> 1702b5153b5c6575c32bf5c4febec282756e3642
-=======
-            } else if (HandleInput.isListCommand(trimmedInput)) {
->>>>>>> 3f157ce72fb777c5e439b9f098674a68e23dd999
                 return oz.printTasks();
             } else if (HandleInput.isMarkOrUnmarkCommand(trimmedInput)) {
                 return HandleInput.handleMarkOrUnmark(trimmedInput, oz);
