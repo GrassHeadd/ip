@@ -6,8 +6,7 @@ import Ozymandias.Tasks.HandleTask;
 import Ozymandias.ui.HandleInput;
 
 /**
- * A parser that interprets user commands and delegates tasks
- * to the appropriate methods in the Ozymandias chatbot.
+ * A parser that interprets user commands and delegates tasks appropriately
  */
 public class Parser {
 
