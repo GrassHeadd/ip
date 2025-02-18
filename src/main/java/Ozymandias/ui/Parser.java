@@ -3,7 +3,6 @@ package Ozymandias.ui;
 import java.time.format.DateTimeParseException;
 
 import Ozymandias.Tasks.HandleTask;
-import Ozymandias.ui.HandleInput;
 
 /**
  * A parser that interprets user commands and delegates tasks appropriately
@@ -11,7 +10,8 @@ import Ozymandias.ui.HandleInput;
 public class Parser {
 
     /**
-     * Processes the user's input and calls the corresponding methods based on the command.
+     * Processes the user's input and calls the
+     * corresponding methods based on the command.
      *
      * @param input The raw command entered by the user.
      * @param oz    The main chatbot object.
@@ -24,7 +24,7 @@ public class Parser {
                 return HandleInput.handleFindCommand(trimmedInput, oz);
             } else if (HandleInput.isByeCommand(trimmedInput)) {
                 oz.setExit(true);
-                return oz.getUi().greetGoodbye();
+                return Ui.greetGoodbye();
             } else if (HandleInput.isListCommand(trimmedInput)) {
                 return oz.printTasks();
             } else if (HandleInput.isMarkOrUnmarkCommand(trimmedInput)) {
@@ -47,8 +47,6 @@ public class Parser {
             return "    You did some stupid stuff, find out yourself!\n";
         }
     }
-
-
 
     /**
      * Creates different task objects (ToDos, Deadlines, Events)

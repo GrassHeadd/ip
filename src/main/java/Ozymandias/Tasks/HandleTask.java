@@ -48,6 +48,7 @@ public class HandleTask {
             return "Provide an actual valid date in yyyy-MM-dd, e.g.:\n"
                     + "event project presentation /from 2025-03-10 /to 2025-03-11\n idiot \n";
         }
+
         String startDate = parts[1].trim();
         String endDate = parts[2].trim();
         Task newTask = new Events(description, startDate, endDate);
