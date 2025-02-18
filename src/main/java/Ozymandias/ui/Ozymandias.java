@@ -1,11 +1,10 @@
 package Ozymandias.ui;
 
 import java.util.Scanner;
+import java.util.Map;
 
 import Ozymandias.Storage.Storage;
 import Ozymandias.Tasks.Task;
-
-import java.util.Map;
 
 /**
  * The main class for the Ozymandias task manager.
@@ -50,7 +49,8 @@ public class Ozymandias {
     public String addTask(Task t) {
         tasks.addTask(t);
         return ("     Fine, I'll add this task:\n"
-                + "       " + t.getTaskType() + "[" + t.getStatusIcon() + "] " + t + "\n")
+                + "       " + t.getTaskType() + "[" +
+                t.getStatusIcon() + "] " + t + "\n")
                 + ("     Now you have " + tasks.size() + " tasks in the list.\n");
     }
 
@@ -83,6 +83,7 @@ public class Ozymandias {
         if (t == null) {
             return ("    No task with ID " + id + " found!");
         }
+
         if (t.getStatusIcon().equals("X") && isMark) {
             return ("    Task is already marked done!\n");
         } else if (t.getStatusIcon().equals(" ") && !isMark) {
@@ -115,10 +116,20 @@ public class Ozymandias {
 
     }
 
+    /**
+     * Processes the user's input and
+     * get all the tasks in the taskList
+     * containing the input
+     *
+     * @param input The command in String to find tasks containing the input
+     * @return a String of all the tasks containing the input
+     */
+
     public String findTask(String input) {
         input = input.toLowerCase().trim();
         int count = 0;
-        StringBuilder output = new StringBuilder("    Here are the matching tasks in your list:\n");
+        StringBuilder output = new StringBuilder(
+                "    Here are the matching tasks in your list:\n");
 
         for (Map.Entry<Integer, Task> entry : tasks.getAllTasks().entrySet()) {
             Task tk = entry.getValue();
