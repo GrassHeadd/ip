@@ -27,7 +27,7 @@ public class Parser {
                 return handleFindCommand(trimmedInput, oz);
             } else if (isByeCommand(trimmedInput)) {
                 oz.setExit(true);
-                return oz.getUi().greetGoodbye();
+                return Ui.greetGoodbye();
             } else if (isListCommand(trimmedInput)) {
                 return oz.printTasks();
             } else if (isMarkOrUnmarkCommand(trimmedInput)) {

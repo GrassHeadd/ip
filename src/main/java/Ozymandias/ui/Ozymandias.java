@@ -40,8 +40,6 @@ public class Ozymandias {
 
     public void setExit(boolean exit) {this.isExit = exit;}
 
-    public Ui getUi() {return ui;}
-
     public TaskList getTasks() {return tasks;}
 
     /**
@@ -64,6 +62,7 @@ public class Ozymandias {
     public String deleteTask(int id) {
         if (tasks.hasTask(id)) {
             Task removedTask = tasks.removeTask(id);
+            assert tasks.getTask(id) == null : tasks.getTask(id) + " was not deleted";
             return "     Noted. I've removed this task:\n"
                     + "       " + removedTask.getTaskType()
                     + "[" + removedTask.getStatusIcon() + "] " + removedTask + "\n"
@@ -105,6 +104,7 @@ public class Ozymandias {
             for (Map.Entry<Integer, Task> entry : tasks.getAllTasks().entrySet()) {
                 int id = entry.getKey();
                 Task tk = entry.getValue();
+                assert tk != null :"Retrieved task should not be empty";
                 output.append("     ").append(id)
                         .append(".").append(tk.getTaskType())
                         .append("[").append(tk.getStatusIcon())
@@ -136,6 +136,9 @@ public class Ozymandias {
         if (count == 0) {
             return "       There is no matching task!\n";
         }
+
+        assert count > 0 :"there should be tasks in your list";
+
         return output.toString();
     }
 
