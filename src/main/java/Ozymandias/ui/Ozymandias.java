@@ -11,13 +11,11 @@ import Ozymandias.Tasks.Task;
  * It handles user interactions, command processing, and task storage.
  */
 public class Ozymandias {
-    private final Ui ui;
     private final Storage storage;
     private final TaskList tasks;
     private boolean isExit = false;
 
     public Ozymandias(String filePath) {
-        this.ui = new Ui();
         this.storage = new Storage(filePath);
         this.tasks = storage.load();  // load any existing tasks from file
     }
@@ -27,7 +25,7 @@ public class Ozymandias {
      * til user exits the program.
      */
     public void run() {
-        ui.greetHello();
+        Ui.greetHello();
         Scanner scanner = new Scanner(System.in);
 
         while (!isExit) {
