@@ -37,9 +37,13 @@ public class Ozymandias {
         }
     }
 
-    public void setExit(boolean exit) {this.isExit = exit;}
+    public void setExit(boolean exit) {
+        this.isExit = exit;
+    }
 
-    public TaskList getTasks() {return tasks;}
+    public TaskList getTasks() {
+        return tasks;
+    }
 
     /**
      * Adds a task to the task list
@@ -48,10 +52,10 @@ public class Ozymandias {
      */
     public String addTask(Task t) {
         tasks.addTask(t);
-        return ("     Fine, I'll add this task:\n"
-                + "       " + t.getTaskType() + "[" +
+        return ("Fine, I'll add this task:\n"
+                + "   " + t.getTaskType() + "[" +
                 t.getStatusIcon() + "] " + t + "\n")
-                + ("     Now you have " + tasks.size() + " tasks in the list.\n");
+                + ("Now you have " + tasks.size() + " tasks in the list.\n");
     }
 
     /**
@@ -63,34 +67,34 @@ public class Ozymandias {
         if (tasks.hasTask(id)) {
             Task removedTask = tasks.removeTask(id);
             assert tasks.getTask(id) == null : tasks.getTask(id) + " was not deleted";
-            return "     Noted. I've removed this task:\n"
-                    + "       " + removedTask.getTaskType()
+            return "Noted. I've removed this task:\n"
+                    + removedTask.getTaskType()
                     + "[" + removedTask.getStatusIcon() + "] " + removedTask + "\n"
-                    + "     Now you have " + tasks.size() + " tasks in the list.\n";
+                    + "Now you have " + tasks.size() + " tasks in the list.\n";
         } else {
-           return ("     Error: No task found with ID " + id);
+            return ("Error: No task found with ID " + id);
         }
     }
 
     /**
      * Marks or unmark a task in the tasklist
      *
-     * @param id Id of task to be marked
+     * @param id     Id of task to be marked
      * @param isMark Whether task is marked currently
      */
     public String markTask(int id, boolean isMark) {
         Task t = tasks.getTask(id);
         if (t == null) {
-            return ("    No task with ID " + id + " found!");
+            return ("No task with ID " + id + " found!");
         }
 
         if (t.getStatusIcon().equals("X") && isMark) {
-            return ("    Task is already marked done!\n");
+            return ("Task is already marked done!\n");
         } else if (t.getStatusIcon().equals(" ") && !isMark) {
-            return ("    Task is already not done!\n");
+            return ("Task is already not done!\n");
         } else {
             t.toggleIsDone();
-            return ("    Task toggled!\n");
+            return ("Task toggled!\n");
         }
     }
 
@@ -99,13 +103,13 @@ public class Ozymandias {
      */
     public String printTasks() {
         if (tasks.size() == 0) {
-            return ("    Your task list is empty.");
+            return ("Your task list is empty.");
         } else {
-            StringBuilder output = new StringBuilder(("     Here are the tasks in your list: \n"));
+            StringBuilder output = new StringBuilder(("Here are the tasks in your list: \n"));
             for (Map.Entry<Integer, Task> entry : tasks.getAllTasks().entrySet()) {
                 int id = entry.getKey();
                 Task tk = entry.getValue();
-                assert tk != null :"Retrieved task should not be empty";
+                assert tk != null : "Retrieved task should not be empty";
                 output.append("     ").append(id)
                         .append(".").append(tk.getTaskType())
                         .append("[").append(tk.getStatusIcon())
@@ -129,7 +133,7 @@ public class Ozymandias {
         input = input.toLowerCase().trim();
         int count = 0;
         StringBuilder output = new StringBuilder(
-                "    Here are the matching tasks in your list:\n");
+                "Here are the matching tasks in your list:\n");
 
         for (Map.Entry<Integer, Task> entry : tasks.getAllTasks().entrySet()) {
             Task tk = entry.getValue();
@@ -145,10 +149,10 @@ public class Ozymandias {
         }
 
         if (count == 0) {
-            return "       There is no matching task!\n";
+            return "There is no matching task!\n";
         }
 
-        assert count > 0 :"there should be tasks in your list";
+        assert count > 0 : "there should be tasks in your list";
 
         return output.toString();
     }

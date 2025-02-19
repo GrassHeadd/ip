@@ -1,8 +1,11 @@
-package Ozymandias.Tasks;
+package Ozymandias.ui;
 
-import Ozymandias.ui.Ozymandias;
+import Ozymandias.Tasks.Deadlines;
+import Ozymandias.Tasks.Events;
+import Ozymandias.Tasks.Task;
+import Ozymandias.Tasks.ToDos;
 
-public class HandleTask {
+public class HandleParserTask {
     /**
      * Handles creation of a "todo" task
      */

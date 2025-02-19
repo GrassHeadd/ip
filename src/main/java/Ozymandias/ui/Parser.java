@@ -2,8 +2,6 @@ package Ozymandias.ui;
 
 import java.time.format.DateTimeParseException;
 
-import Ozymandias.Tasks.HandleTask;
-
 /**
  * A parser that interprets user commands and delegates tasks appropriately
  */
@@ -36,15 +34,15 @@ public class Parser {
                 return createDifferentTask(trimmedInput, oz);
             }
         } catch (DateTimeParseException e) {
-            return "    Invalid date you entered\n";
+            return "Invalid date you entered\n";
         } catch (IndexOutOfBoundsException e) {
-            return "    Missing task details or invalid format you banana pants\n";
+            return "Missing task details or invalid format you banana pants\n";
         } catch (NumberFormatException e) {
-            return "    Invalid task id you entered\n";
+            return "Invalid task id you entered\n";
         } catch (NullPointerException e) {
-            return "    You didn't put anything!\n";
+            return "You didn't put anything!\n";
         } catch (Exception e) {
-            return "    You did some stupid stuff, find out yourself!\n";
+            return "You did some stupid stuff, find out yourself!\n";
         }
     }
 
@@ -55,28 +53,23 @@ public class Parser {
     public static String createDifferentTask(String input, Ozymandias oz) {
         try {
             if (input.startsWith("todo")) {
-                return HandleTask.handleTodoCreation(input, oz);
-
+                return HandleParserTask.handleTodoCreation(input, oz);
             } else if (input.startsWith("deadline")) {
-                return HandleTask.handleDeadlineCreation(input, oz);
-
+                return HandleParserTask.handleDeadlineCreation(input, oz);
             } else if (input.startsWith("event")) {
-                return HandleTask.handleEventCreation(input, oz);
+                return HandleParserTask.handleEventCreation(input, oz);
             }
-
         } catch (DateTimeParseException e) {
-            return "    Invalid date you entered\n";
+            return "Invalid date you entered\n";
         } catch (IndexOutOfBoundsException e) {
-            return "    Missing task details or invalid format you banana pants\n";
+            return "Missing task details or invalid format you banana pants\n";
         } catch (NullPointerException e) {
-            return "    You didn't put anything!\n";
+            return "You didn't put anything!\n";
         } catch (Exception e) {
-            return "    idk man think yourself what you did wrong!\n";
+            return "idk man think yourself what you did wrong!\n";
         }
 
         // If the command doesn’t match any known pattern
-        return "    what are you even asking me to do???";
+        return "what are you even asking me to do???";
     }
-
-
 }
