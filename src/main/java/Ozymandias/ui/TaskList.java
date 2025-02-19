@@ -39,11 +39,19 @@ public class TaskList {
         currentId = newId;
     }
 
-    public boolean hasTask(int id) {return tasks.containsKey(id);}
+    public boolean hasTask(int id) {
+        return tasks.containsKey(id);
+    }
 
-    public Task getTask(int id) {return tasks.get(id);}
+    public Task getTask(int id) {
+        return tasks.get(id);
+    }
 
-    public int size() {return tasks.size();}
+    public int size() {
+        return tasks.size();
+    }
 
-    public LinkedHashMap<Integer, Task> getAllTasks() {return tasks;}
+    public LinkedHashMap<Integer, Task> getAllTasks() {
+        return tasks;
+    }
 }

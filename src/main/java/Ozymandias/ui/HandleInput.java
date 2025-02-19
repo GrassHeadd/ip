@@ -1,5 +1,10 @@
 package Ozymandias.ui;
 
+import Ozymandias.Tasks.Deadlines;
+import Ozymandias.Tasks.Events;
+
+import java.time.LocalDate;
+
 public class HandleInput {
     public static boolean isFindCommand(String input) {
         return input.startsWith("find");
@@ -20,6 +25,11 @@ public class HandleInput {
     public static boolean isDeleteCommand(String input) {
         return input.startsWith("delete");
     }
+
+    public static boolean isRemindCommand(String input) {
+        return input.equalsIgnoreCase("remind");
+    }
+
 
     public static String handleFindCommand(String input, Ozymandias oz) {
         String[] parts = input.split("find ", 2);
@@ -45,4 +55,27 @@ public class HandleInput {
         int taskId = Integer.parseInt(tokens[1]);
         return oz.deleteTask(taskId);
     }
+
+    public static String handleRemindCommand(String input, Ozymandias oz) {
+        TaskList tasks = oz.getTasks();
+        String output = "Here are the upcoming stuff, get prepared loser!\n";
+        for (int i = 0; i < tasks.size(); i++) {
+            if((tasks.getTask(i+1).getTaskType().equals("[E]")) || (tasks.getTask(i+1).getTaskType().equals("[D]"))) {
+                LocalDate endDate = tasks.getTask(i+1).getEndDate();
+                if (checkDate(endDate, LocalDate.now())) {
+                    System.out.println("check date");
+                    System.out.println(tasks.getTask(i+1).toString());
+                    System.out.println(tasks);
+                    System.out.println("adding");
+                    output = output + i + "." + tasks.getTask(i+1).toString() + "\n";
+                }
+            }
+        }
+        return output;
+    }
+
+    private static Boolean checkDate(LocalDate firstDate, LocalDate secondDate) {
+        return firstDate.isAfter(secondDate);
+    }
+
 }
