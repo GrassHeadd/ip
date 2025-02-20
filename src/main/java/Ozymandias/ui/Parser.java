@@ -30,7 +30,6 @@ public class Parser {
             } else if (HandleInput.isDeleteCommand(trimmedInput)) {
                 return HandleInput.handleDeleteCommand(trimmedInput, oz);
             } else {
-                // If none of the above commands match, assume user wants to create a new Task.
                 return createDifferentTask(trimmedInput, oz);
             }
         } catch (DateTimeParseException e) {
