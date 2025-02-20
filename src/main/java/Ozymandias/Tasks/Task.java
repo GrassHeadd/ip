@@ -30,13 +30,7 @@ public abstract class Task {
 
     public abstract String getTaskType();
 
-    public int getId() {return id;}
-
     public void setId(int newId) {this.id = newId;}
-
-    public static int getNextId() {return nextId;}
-
-    public static void reduceNextId() {nextId--;}
 
     @Override
     public String toString() {return taskDetails;}
