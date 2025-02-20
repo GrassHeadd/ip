@@ -3,14 +3,14 @@ package Ozymandias.ui;
 public class Ui {
 
     /**
-     *  Method to greet the user when initalised
+     *  greets the user when called
      */
     public static String greetHello() {
         return ("Behold! I am Ozymandias, King of Kings.");
     }
 
     /**
-     * Method to greet the user goodbye when exit
+     * greets the user goodbye when called
      */
     public static String greetGoodbye() {
         return ("Go now, traveler");

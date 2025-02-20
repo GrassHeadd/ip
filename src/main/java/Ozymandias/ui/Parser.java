@@ -21,7 +21,6 @@ public class Parser {
             if (HandleInput.isFindCommand(trimmedInput)) {
                 return HandleInput.handleFindCommand(trimmedInput, oz);
             } else if (HandleInput.isByeCommand(trimmedInput)) {
-                oz.setExit(true);
                 return Ui.greetGoodbye();
             } else if (HandleInput.isListCommand(trimmedInput)) {
                 return oz.printTasks();

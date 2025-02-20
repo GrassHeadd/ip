@@ -1,5 +1,6 @@
 package Ozymandias.Launcher;
 
+import Ozymandias.Storage.Storage;
 import Ozymandias.ui.Ozymandias;
 import Ozymandias.ui.Ui;
 import javafx.fxml.FXML;
@@ -39,8 +40,8 @@ public class MainWindow extends AnchorPane {
     }
 
     /** Injects the Ozymandias instance */
-    public void setOzymandias(Ozymandias d) {
-        ozymandias = d;
+    public void setOzymandias(Ozymandias oz) {
+        ozymandias = oz;
     }
 
     /**
@@ -56,6 +57,7 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getOzymandiasDialog(response, ozymandiasImage)
         );
         userInput.clear();
+        Storage.save(ozymandias.getTasks());
 
         if (input.trim().equalsIgnoreCase("bye")) {
             new Thread(() -> {

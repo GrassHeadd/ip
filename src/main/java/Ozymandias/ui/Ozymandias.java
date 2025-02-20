@@ -13,15 +13,10 @@ import Ozymandias.Tasks.Task;
 public class Ozymandias {
     private final Storage storage;
     private final TaskList tasks;
-    private boolean isExit = false;
 
     public Ozymandias(String filePath) {
         this.storage = new Storage(filePath);
         this.tasks = storage.load();  // load any existing tasks from file
-    }
-
-    public void setExit(boolean exit) {
-        this.isExit = exit;
     }
 
     public TaskList getTasks() {
@@ -62,7 +57,7 @@ public class Ozymandias {
     /**
      * Marks or unmark a task in the tasklist
      *
-     * @param id     Id of task to be marked
+     * @param id id of task to be marked
      * @param isMark Whether task is marked currently
      */
     public String markTask(int id, boolean isMark) {

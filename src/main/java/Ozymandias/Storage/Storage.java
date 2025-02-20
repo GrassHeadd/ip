@@ -12,7 +12,6 @@ import Ozymandias.ui.TaskList;
 
 public class Storage {
     private final String filePath;
-    public Scanner s;
 
     public Storage(String filePath) {
         this.filePath = filePath;
@@ -42,20 +41,28 @@ public class Storage {
      *
      * @param taskList Tasklist to be saved
      */
-    public void save(TaskList taskList) {
+    public static void save(TaskList taskList) {
+        // Always use this file path.
+        String filePath = "./data/ozymandias.txt";
+
         try {
             File f = new File(filePath);
+            // Create parent directories if they don't exist
             f.getParentFile().mkdirs();
-            FileWriter fw = new FileWriter(f);
+
+            // Use FileWriter in overwrite mode
+            FileWriter fw = new FileWriter(f, false);
 
             for (Map.Entry<Integer, Task> entry : taskList.getAllTasks().entrySet()) {
                 Integer id = entry.getKey();
                 Task t = entry.getValue();
-                fw.write(id + ". " + t.getTaskType() + "[" + t.getStatusIcon() + "] " + t + "\n");
+                // Write the task ID, type, status, and toString() content
+                fw.write(id + ". " + t.getTaskType() + "[" + t.getStatusIcon() + "] "
+                        + t + System.lineSeparator());
             }
             fw.close();
         } catch (IOException e) {
-            System.out.println("IOException: " + e.getMessage());
+            System.out.println("IOException while saving tasks: " + e.getMessage());
         }
     }
 }

@@ -52,6 +52,12 @@ public class DialogBox extends HBox {
         return new DialogBox(text, img);
     }
 
+    /**
+     * Takes in the dia
+     * @param text
+     * @param img
+     * @return
+     */
     public static DialogBox getOzymandiasDialog(String text, Image img) {
         var db = new DialogBox(text, img);
         db.flip();

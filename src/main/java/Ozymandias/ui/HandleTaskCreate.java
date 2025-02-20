@@ -5,12 +5,23 @@ import Ozymandias.Tasks.Events;
 import Ozymandias.Tasks.Task;
 import Ozymandias.Tasks.ToDos;
 
+/**
+ * Utility class providing static methods to handle the creation of different
+ * task types based on user input.
+ */
 public class HandleTaskCreate {
+
     /**
-     * Handles creation of a "todo" task
+     * Creates a new todos task from the user input.
+     *
+     * @param input The raw user input string starting with "todos".
+     * @param oz    The main chatbot object that manages the task list and provides
+     *              methods to add tasks.
+     * @return A string indicating success or an error message if the description
+     *         is invalid or empty.
      */
     public static String handleTodoCreation(String input, Ozymandias oz) {
-        // e.g. "todo buy groceries"
+        // e.g., "todo buy groceries"
         String description = input.substring(4).trim();
         if (description.isEmpty()) {
             return "no description!!";
@@ -20,10 +31,16 @@ public class HandleTaskCreate {
     }
 
     /**
-     * Handles creation of a "deadline" task
+     * Creates a new Deadlines task from the user input.
+     *
+     * @param input The raw user input string starting with "deadline".
+     * @param oz    The main chatbot object that manages the task list and provides
+     *              methods to add tasks.
+     * @return A string indicating success or an error message if the format is
+     *         invalid or the date is missing.
      */
     public static String handleDeadlineCreation(String input, Ozymandias oz) {
-        // e.g. "deadline return book /by 2025-01-28"
+        // e.g., "deadline return book /by 2025-01-28"
         String[] parts = input.substring(8).split("/by");
         String description = parts[0].trim();
         if (description.isEmpty()) {
@@ -38,7 +55,13 @@ public class HandleTaskCreate {
     }
 
     /**
-     * Handles creation of an "event" task
+     * Creates a new Events task from the user input.
+     *
+     * @param input The raw user input string starting with "events".
+     * @param oz    The main chatbot object that manages the task list and provides
+     *              methods to add tasks.
+     * @return A string indicating success or an error message if the format is
+     *         invalid or the dates are missing.
      */
     public static String handleEventCreation(String input, Ozymandias oz) {
         // e.g., "event project presentation /from 2025-03-10 /to 2025-03-11"

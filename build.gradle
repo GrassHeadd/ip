@@ -46,10 +46,10 @@ test {
     }
 }
 
-mainClassName = 'Ozymandias.ui.Ozymandias'
+mainClassName = 'Ozymandias.Launcher.Launcher'
 
 application {
-    mainClass.set("Ozymandias.ui.Launcher")
+    mainClass.set("Ozymandias.Launcher.Launcher")
 }
 
 shadowJar {

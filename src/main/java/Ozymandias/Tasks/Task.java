@@ -21,8 +21,6 @@ public abstract class Task {
         return (isDone ? "X" : " "); // mark done task with X
     }
 
-    public abstract String getTaskType();
-
     public LocalDate getEndDate() {
         return null;
     }
@@ -30,6 +28,8 @@ public abstract class Task {
     public void setId(int newId) {
         this.id = newId;
     }
+
+    public abstract String getTaskType();
 
     @Override
     public String toString() {
