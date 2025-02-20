@@ -26,7 +26,7 @@ public abstract class Task {
     public LocalDate getEndDate() {
         return null;
     }
-    
+
     public void setId(int newId) {
         this.id = newId;
     }
