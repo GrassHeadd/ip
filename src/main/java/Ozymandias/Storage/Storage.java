@@ -36,7 +36,6 @@ public class Storage {
         return new TaskList();
     }
 
-
     /**
      * Saves the tasklist into a txt file
      *
