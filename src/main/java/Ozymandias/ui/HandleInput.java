@@ -63,10 +63,6 @@ public class HandleInput {
             if((tasks.getTask(i+1).getTaskType().equals("[E]")) || (tasks.getTask(i+1).getTaskType().equals("[D]"))) {
                 LocalDate endDate = tasks.getTask(i+1).getEndDate();
                 if (checkDate(endDate, LocalDate.now())) {
-                    System.out.println("check date");
-                    System.out.println(tasks.getTask(i+1).toString());
-                    System.out.println(tasks);
-                    System.out.println("adding");
                     output = output + i + "." + tasks.getTask(i+1).toString() + "\n";
                 }
             }

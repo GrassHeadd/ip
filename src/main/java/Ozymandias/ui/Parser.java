@@ -30,7 +30,6 @@ public class Parser {
             } else if (HandleInput.isDeleteCommand(trimmedInput)) {
                 return HandleInput.handleDeleteCommand(trimmedInput, oz);
             } else if (HandleInput.isRemindCommand(trimmedInput)) {
-                System.out.println("handle called");
                 return HandleInput.handleRemindCommand(trimmedInput, oz);
             } else {
                 return createDifferentTask(trimmedInput, oz);
