@@ -10,19 +10,18 @@
 > by [Percy Bysshe Shelley](https://www.poetryfoundation.org/poems/46565/ozymandias) 
 
 ## Command List
-| Command                                              | Description                          |
-| ---------------------------------------------------- | ------------------------------------ |
-| `list`                                               | Lists all tasks                     |
-| `mark <task number>`                                 | Marks a task as done                |
-| `unmark <task number>`                               | Marks a task as not done            |
-| `todo <task>`                                        | Adds a Todo task                    |
-| `event <task> /from <date> <time> /to <date> <time>` | Adds an Event task                   |
-| `deadline <task> /by <date> <time>`                  | Adds a Deadline task                |
-| `delete <task number(s)>`                            | Deletes one or more tasks by number |
-| `find <keyword>`                                     | Finds tasks matching keyword       |
-| `remind`                                                | Display tasks with upcoming deadlines                   |
-| `bye`                                                | Exit the program                  |
-
+| Command                                              | Description                           |
+| ---------------------------------------------------- | ------------------------------------- |
+| `list`                                               | Lists all tasks                       |
+| `mark <task number>`                                 | Marks a task as done                  |
+| `unmark <task number>`                               | Marks a task as not done              |
+| `todo <task>`                                        | Adds a Todo task                      |
+| `event <task> /from <date> /to <date> `              | Adds an Event task                    |
+| `deadline <task> /by <date> <time>`                  | Adds a Deadline task                  |
+| `delete <task number(s)>`                            | Deletes one or more tasks by number   |
+| `find <keyword>`                                     | Finds tasks matching keyword          |
+| `remind`                                             | Display tasks with upcoming deadlines |
+| `bye`                                                | Exit the program                      |
 
 ---
 ## Features:
