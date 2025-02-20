@@ -10,6 +10,7 @@
 > by [Percy Bysshe Shelley](https://www.poetryfoundation.org/poems/46565/ozymandias) 
 
 ## Command List
+
 | Command                                              | Description                           |
 | ---------------------------------------------------- | ------------------------------------- |
 | `list`                                               | Lists all tasks                       |
