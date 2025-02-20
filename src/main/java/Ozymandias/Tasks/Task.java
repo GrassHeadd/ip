@@ -1,7 +1,5 @@
 package Ozymandias.Tasks;
 
-import java.time.LocalDate;
-
 public abstract class Task {
     private static int nextId = 1;          // Auto-increment ID if you want unique IDs
     private int id;
@@ -15,6 +13,15 @@ public abstract class Task {
 
     public void toggleIsDone() {
         isDone = !isDone;
+        if (isDone) {
+            System.out.println("    Nice! I've marked this task as done:");
+            System.out.println("      [X] " + taskDetails);
+            System.out.println();
+        } else {
+            System.out.println("    OK, I've marked this task as not done yet:");
+            System.out.println("      [ ] " + taskDetails);
+            System.out.println();
+        }
     }
 
     public String getStatusIcon() {
@@ -23,16 +30,14 @@ public abstract class Task {
 
     public abstract String getTaskType();
 
-    public LocalDate getEndDate() {
-        return null;
-    }
+    public int getId() {return id;}
 
-    public void setId(int newId) {
-        this.id = newId;
-    }
+    public void setId(int newId) {this.id = newId;}
+
+    public static int getNextId() {return nextId;}
+
+    public static void reduceNextId() {nextId--;}
 
     @Override
-    public String toString() {
-        return taskDetails;
-    }
+    public String toString() {return taskDetails;}
 }

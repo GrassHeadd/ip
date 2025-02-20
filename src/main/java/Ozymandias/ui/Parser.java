@@ -29,9 +29,6 @@ public class Parser {
                 return HandleInput.handleMarkOrUnmark(trimmedInput, oz);
             } else if (HandleInput.isDeleteCommand(trimmedInput)) {
                 return HandleInput.handleDeleteCommand(trimmedInput, oz);
-            } else if (HandleInput.isRemindCommand(trimmedInput)) {
-                System.out.println("handle called");
-                return HandleInput.handleRemindCommand(trimmedInput, oz);
             } else {
                 // If none of the above commands match, assume user wants to create a new Task.
                 return createDifferentTask(trimmedInput, oz);
@@ -56,11 +53,11 @@ public class Parser {
     public static String createDifferentTask(String input, Ozymandias oz) {
         try {
             if (input.startsWith("todo")) {
-                return HandleTaskCreate.handleTodoCreation(input, oz);
+                return HandleParserTask.handleTodoCreation(input, oz);
             } else if (input.startsWith("deadline")) {
-                return HandleTaskCreate.handleDeadlineCreation(input, oz);
+                return HandleParserTask.handleDeadlineCreation(input, oz);
             } else if (input.startsWith("event")) {
-                return HandleTaskCreate.handleEventCreation(input, oz);
+                return HandleParserTask.handleEventCreation(input, oz);
             }
         } catch (DateTimeParseException e) {
             return "Invalid date you entered\n";

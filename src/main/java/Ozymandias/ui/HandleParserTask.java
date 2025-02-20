@@ -5,7 +5,7 @@ import Ozymandias.Tasks.Events;
 import Ozymandias.Tasks.Task;
 import Ozymandias.Tasks.ToDos;
 
-public class HandleTaskCreate {
+public class HandleParserTask {
     /**
      * Handles creation of a "todo" task
      */
