@@ -20,21 +20,6 @@ public class Ozymandias {
         this.tasks = storage.load();  // load any existing tasks from file
     }
 
-    /**
-     * Runs the Ozymandias application, continuously accept user input
-     * til user exits the program.
-     */
-    public void run() {
-        Ui.greetHello();
-        Scanner scanner = new Scanner(System.in);
-
-        while (!isExit) {
-            String input = scanner.nextLine();
-            Parser.handleCommand(input, this);
-            storage.save(tasks);
-        }
-    }
-
     public void setExit(boolean exit) {
         this.isExit = exit;
     }
@@ -162,8 +147,4 @@ public class Ozymandias {
         return Parser.handleCommand(input, this);
     }
 
-    public static void main(String[] args) {
-        Ozymandias oz = new Ozymandias("./data/Ozymandias.txt");
-        oz.run();
-    }
 }
