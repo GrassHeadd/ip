@@ -50,7 +50,7 @@ public class Ozymandias {
         if (tasks.hasTask(id)) {
             Task removedTask = tasks.removeTask(id);
             assert tasks.getTask(id) == null : tasks.getTask(id) + " was not deleted";
-            return "Noted. I've removed this task:\n"
+            return "Fine, I've removed this task:\n"
                     + removedTask.getTaskType()
                     + "[" + removedTask.getStatusIcon() + "] " + removedTask + "\n"
                     + "Now you have " + tasks.size() + " tasks in the list.\n";

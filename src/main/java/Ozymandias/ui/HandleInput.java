@@ -63,7 +63,7 @@ public class HandleInput {
             if((tasks.getTask(i+1).getTaskType().equals("[E]")) || (tasks.getTask(i+1).getTaskType().equals("[D]"))) {
                 LocalDate endDate = tasks.getTask(i+1).getEndDate();
                 if (checkDate(endDate, LocalDate.now())) {
-                    output = output + i + "." + tasks.getTask(i+1).toString() + "\n";
+                    output = output + (i+1) + "." + tasks.getTask(i+1).toString() + "\n";
                 }
             }
         }
