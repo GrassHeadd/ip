@@ -15,13 +15,20 @@ public class Events extends Task {
         this.endDate   = LocalDate.parse(endDateString, INPUT_FORMAT);
     }
 
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
     @Override
     public String getTaskType() {return "[E]";}
 
     @Override
     public String toString() {
         // Example: "project presentation (from: Mar 10 2025 to: Mar 11 2025)"
-        return super.toString() + " (from: " + startDate.format(OUTPUT_FORMAT)
-                + " to: "   + endDate.format(OUTPUT_FORMAT)  + ")";
+        return super.toString() + " (from: " + startDate.format(OUTPUT_FORMAT)  + " to: "   + endDate.format(OUTPUT_FORMAT)  + ")";
     }
 }

@@ -6,7 +6,5 @@ public class ToDos extends Task {
     }
 
     @Override
-    public String getTaskType() {
-        return "[T]";
-    }
+    public String getTaskType() {return "[T]";}
 }
