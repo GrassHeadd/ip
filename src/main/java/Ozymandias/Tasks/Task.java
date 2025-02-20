@@ -21,7 +21,9 @@ public abstract class Task {
 
     public abstract String getTaskType();
 
-    public void setId(int newId) {this.id = newId;}
+    public void setId(int newId) {
+        this.id = newId;
+    }
 
     @Override
     public String toString() {

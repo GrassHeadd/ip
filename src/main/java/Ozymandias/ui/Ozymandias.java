@@ -147,13 +147,10 @@ public class Ozymandias {
                         .append("] ").append(tk).append("\n");
             }
         }
-
         if (count == 0) {
             return "There is no matching task!\n";
         }
-
         assert count > 0 : "there should be tasks in your list";
-
         return output.toString();
     }
 

@@ -21,6 +21,7 @@ public class Events extends Task {
     @Override
     public String toString() {
         // Example: "project presentation (from: Mar 10 2025 to: Mar 11 2025)"
-        return super.toString() + " (from: " + startDate.format(OUTPUT_FORMAT)  + " to: "   + endDate.format(OUTPUT_FORMAT)  + ")";
+        return super.toString() + " (from: " + startDate.format(OUTPUT_FORMAT)
+                + " to: "   + endDate.format(OUTPUT_FORMAT)  + ")";
     }
 }
