@@ -33,7 +33,6 @@ public class Parser {
                 System.out.println("handle called");
                 return HandleInput.handleRemindCommand(trimmedInput, oz);
             } else {
-                // If none of the above commands match, assume user wants to create a new Task.
                 return createDifferentTask(trimmedInput, oz);
             }
         } catch (DateTimeParseException e) {
