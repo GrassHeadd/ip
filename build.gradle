@@ -7,15 +7,10 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
-
 
 dependencies {
     String javaFxVersion = '17.0.7'
-
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
 
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'win'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'mac'
@@ -30,6 +25,7 @@ dependencies {
     implementation group: 'org.openjfx', name: 'javafx-graphics', version: javaFxVersion, classifier: 'mac'
     implementation group: 'org.openjfx', name: 'javafx-graphics', version: javaFxVersion, classifier: 'linux'
 }
+
 
 
 test {
@@ -49,12 +45,10 @@ test {
 mainClassName = 'Ozymandias.Launcher.Launcher'
 
 application {
-    mainClass.set("Ozymandias.Launcher.Launcher")
+    mainClass.set("Ozymandias.Launcher.Main")
 }
 
 shadowJar {
-    archiveBaseName = "Ozymandias"
-    archiveClassifier = null
     archiveFileName = "Ozymandias.jar"
 }
 

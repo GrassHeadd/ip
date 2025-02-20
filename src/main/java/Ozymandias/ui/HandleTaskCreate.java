@@ -47,7 +47,8 @@ public class HandleTaskCreate {
             return "no description!!";
         }
         if (parts.length < 2) {
-            return "Provide a valid date in yyyy-MM-dd";
+            return "Provide a valid date in yyyy-MM-dd e.g.\n"
+                    + "deadline return book /by 2025-01-28";
         }
         String dueDate = parts[1].trim();
         Task newTask = new Deadlines(description, dueDate);
