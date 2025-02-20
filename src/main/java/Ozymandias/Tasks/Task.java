@@ -33,5 +33,7 @@ public abstract class Task {
     public void setId(int newId) {this.id = newId;}
 
     @Override
-    public String toString() {return taskDetails;}
+    public String toString() {
+        return taskDetails;
+    }
 }
