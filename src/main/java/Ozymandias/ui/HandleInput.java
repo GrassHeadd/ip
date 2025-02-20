@@ -71,6 +71,12 @@ public class HandleInput {
                 }
             }
         }
+
+        if (tasks.size() == 0) {
+            return "You surprisingly don't have any upcoming tasks! " +
+                    "You are either very boring or your entire life is too much a mess!";
+        }
+
         return output;
     }
 
