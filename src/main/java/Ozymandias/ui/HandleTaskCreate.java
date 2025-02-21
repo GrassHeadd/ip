@@ -47,6 +47,9 @@ public class HandleTaskCreate {
             return "no description!!";
         }
         if (parts.length < 2) {
+            if(parts[0].contains("/")){
+                return "wrong command format";
+            }
             return "Provide a valid date in yyyy-MM-dd e.g.\n"
                     + "deadline return book /by 2025-01-28";
         }
