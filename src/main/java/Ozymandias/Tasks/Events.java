@@ -6,13 +6,12 @@ public class Events extends Task {
     private final LocalDate startDate;
     private final LocalDate endDate;
 
-    private static final DateTimeFormatter INPUT_FORMAT  = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy");
+    private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public Events(String taskDetails, String startDateString, String endDateString) {
         super(taskDetails);
-        this.startDate = LocalDate.parse(startDateString, INPUT_FORMAT);
-        this.endDate   = LocalDate.parse(endDateString, INPUT_FORMAT);
+        this.startDate = LocalDate.parse(startDateString, FORMAT);
+        this.endDate   = LocalDate.parse(endDateString, FORMAT);
     }
 
     public LocalDate getEndDate() {
@@ -27,6 +26,6 @@ public class Events extends Task {
     @Override
     public String toString() {
         // Example: "project presentation (from: Mar 10 2025 to: Mar 11 2025)"
-        return super.toString() + " (from: " + startDate.format(OUTPUT_FORMAT)  + " to: "   + endDate.format(OUTPUT_FORMAT)  + ")";
+        return super.toString() + " (from: " + startDate.format(FORMAT)  + " to: "   + endDate.format(FORMAT)  + ")";
     }
 }

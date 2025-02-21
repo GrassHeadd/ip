@@ -1,6 +1,5 @@
 package Ozymandias.ui;
 
-import java.util.Scanner;
 import java.util.Map;
 
 import Ozymandias.Storage.Storage;
@@ -11,12 +10,10 @@ import Ozymandias.Tasks.Task;
  * It handles user interactions, command processing, and task storage.
  */
 public class Ozymandias {
-    private final Storage storage;
     private final TaskList tasks;
 
     public Ozymandias(String filePath) {
-        this.storage = new Storage(filePath);
-        this.tasks = storage.load();  // load any existing tasks from file
+        this.tasks = Storage.load();
     }
 
     public TaskList getTasks() {
